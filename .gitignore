@@ -1,3 +1,7 @@
+# result files or APIpackages
+*.png
+account.info
+
 ## Windows
 # Windows thumbnail cache files
 Thumbs.db
