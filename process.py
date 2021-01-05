@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-#import plot
+import plot
 import pre
 import csvwriter as csv
 from pypinyin import pinyin, Style
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     # createJson('./nameResult.json', nameDict)
     attDict, sentimentDict = Attribute(textList)
     # pprint(attDict)
-    # pprint(sentimentDict)
-    # plot.makeSentimentplot(sentimentDict)
+    pprint(sentimentDict)
+    plot.makeSentimentplot(sentimentDict)
     # plot.makeplot(attDict)
     # csv.csvwrite(sentimentDict)

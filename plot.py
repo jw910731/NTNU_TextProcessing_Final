@@ -12,11 +12,14 @@ def makeplot(DICT):
     plt.savefig("result.png")
 
 def makeSentimentplot(DICT):
-    fig , ax = plt.subplots(5, 3, sharex=True, sharey=True,figsize=(16,16))
-    j=0
-    plt.setp(ax,xticks=[0,1,2,3], xticklabels=['neg','neu','pos','compound'])
-    for i in list(DICT.keys()):
-        tmpDICT=DICT[i]
-        ax[j//3,j%3].bar(range(len(tmpDICT)-1),list(tmpDICT.values())[:-1])
-        j=j+1
-    plt.savefig("result2.png")
+    plt.rcParams['axes.unicode_minus']=False
+    plt.rcParams['font.sans-serif']=['Microsoft JhengHei','Arial']
+    for i in list(DICT[list(DICT.keys())[0]].keys()):
+        tmpDICT={}
+        for j in list(DICT.keys()):
+            tmpDICT[j]=DICT[j][i]
+        plt.figure(figsize=(12,12))
+        plt.bar(list(tmpDICT.keys()),tmpDICT.values(),color='g')
+        plt.title(i)
+        plt.savefig("result_"+i+'.png')
+        print(tmpDICT)
